@@ -5,12 +5,12 @@ import java.util.Vector;
 
 /*
  * Demonstrating how Vector is Thread safe 
- * and list is not thread safe and hence leads to
- * ConcurrentListModification
+ * and list is not 
+ * List leads to ConcurrentListModification
  * 
  * To run : Vector
  * 
- * Dont need synchronized
+ * synchronized is not needed
  * 
  * To run : list 
  * 
