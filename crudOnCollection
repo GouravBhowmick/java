@@ -1,0 +1,73 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Employee {
+
+	private String name;
+	private long salary;
+	public Employee(String name, long salary) {
+		super();
+		this.name = name;
+		this.salary = salary;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public long getSalary() {
+		return salary;
+	}
+	public void setSalary(long salary) {
+		this.salary = salary;
+	}
+	
+}
+public class TestClass {
+
+	public static void main(String[] args) {
+
+		List<Employee> employees = new ArrayList<>();
+		employees.add(new Employee("Ram", 1000));
+		employees.add(new Employee("Sita", 1000));
+		employees.add(new Employee("Geeta", 1000));
+
+		Map<String, String> m = new HashMap<>();
+
+		List<Employee> rem = new ArrayList<>();
+
+		m.put("Ram", "X");
+		m.put("Sita", "c");
+		m.put("Geeta", "leftCompany");
+
+		for (Map.Entry<String, String> entry : m.entrySet()) {
+
+			String name = entry.getKey();
+			String replaceName = entry.getValue();
+
+			for (Employee emp : employees) {
+
+				if (emp.getName().equals(name)) {
+					emp.setName(replaceName);
+				}
+			}
+		}
+
+		for (Employee e : employees) {
+			if (e.getName() != "leftCompany") {
+				rem.add(e);
+			}
+		}
+
+		employees.removeAll(rem);
+
+		for (Employee n : rem) {
+			System.out.println(n.getName() + " " + n.getSalary());
+		}
+
+	}
+
+}
